@@ -12,6 +12,6 @@
 <?php } ?>
 <?php if (!empty($images)) { ?>
     <?php foreach($images as $imageUrl) { ?>
-        <meta property="og:image" content="<?php echo escAttr($imageUrl) ?>" />
+        <meta property="og:image" content="<?php echo escAttr($imageUrl) ?>?v=0<?php echo \Ip\ServiceLocator::storage()->get('Ip', 'cacheVersion', 1) ?>" />
     <?php } ?>
 <?php } ?>
