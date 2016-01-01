@@ -4,6 +4,9 @@
 <?php if (!empty($title)) { ?>
     <meta property="og:title" content="<?php echo escAttr($title) ?>" />
 <?php } ?>
+<?php if (!empty($description)) { ?>
+    <meta property="og:description" content="<?php echo escAttr($description) ?>" />
+<?php } ?>
 <?php if (!empty($siteName)) { ?>
     <meta property="og:site_name" content="<?php echo escAttr($siteName) ?>" />
 <?php } ?>
