@@ -63,4 +63,36 @@ class Filter {
 
         return $form;
     }
+
+    public static function ipHead($head)
+    {
+        $vars = array(
+            'siteName' => ipGetOptionLang('Config.websiteTitle')
+        );
+        $defaultTitle = ipGetOptionLang('FacebookTags.defaultTitle');
+        if ($defaultTitle) {
+            $vars['title'] = $defaultTitle;
+        }
+        $defaultImage = array(ipGetOptionLang('FacebookTags.defaultImage'));
+        if ($defaultImage) {
+            $vars['images'] = $defaultImage;
+        }
+        $adminId = ipGetOptionLang('FacebookTags.adminId');
+        if ($adminId) {
+            $vars['adminId'] = $adminId;
+        }
+        $pageTags = Service::facebookTags();
+        if (!empty($pageTags['images'])) {
+            foreach($pageTags['images'] as &$image) {
+                $image = ipFileUrl('file/repository/' . $image);
+            }
+        } else {
+            unset($pageTags['images']);
+        }
+        $vars = array_merge($vars, $pageTags);
+
+        $tags = ipView('view/tags.php', $vars)->render();
+        $head .= $tags;
+        return $head;
+    }
 }

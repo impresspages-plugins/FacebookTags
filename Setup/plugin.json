@@ -2,6 +2,30 @@
   "title": "Facebook tags",
   "version": "1.00",
   "name": "FacebookTags",
-  "description": "Add Facebook meta tags to make your website look great when shared on Facebook.",
-  "author": "ImpressPages"
+  "description": "Add Facebook meta tags to make your website look great when shared on Facebook. Now go to Admin -> Pages, select page and enter text and image for Facebook.",
+  "author": "ImpressPages",
+  "options": [
+    {
+      "label": "Default title",
+      "name": "defaultTitle",
+      "type": "TextLang"
+    },
+    {
+      "label": "Default description",
+      "name": "defaultDescription",
+      "type": "TextLang",
+      "default": ""
+    },
+    {
+      "label": "Full URL to default image",
+      "name": "defaultImage",
+      "type": "TextLang"
+    },
+    {
+      "label": "Facebook admin ID",
+      "name": "adminId",
+      "type": "TextLang",
+      "default": ""
+    }
+  ]
 }
